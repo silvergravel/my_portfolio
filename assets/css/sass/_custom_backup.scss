@@ -1,0 +1,188 @@
+@import "fonts";
+@import "custom-variables";
+
+.nk-main {
+  background-color: #ffffff;
+}
+
+h1 {}
+
+h2 {
+  &.nk-portfolio-title.proj-title {
+    font-family: 'brownthin';
+    font-size: 48px;
+    color: $dark-grey;
+    line-height: 72px;
+    margin-bottom: 36px;
+
+    span {
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+  }
+}
+
+h3 {
+  font-family: 'brownlight';
+  font-size: 28px;
+  color: $dark-grey;
+  line-height: 48px;
+  margin-bottom: 36px;
+
+  &.pull-out-text{
+    font-family: 'brownthin_italic';
+    padding-left: 40px;
+    border-left: 2px solid $dark-grey;
+  }
+}
+
+h4 {}
+
+h5 {
+
+  font-family: 'brownbold_alt';
+  font-size: 16px;
+  line-height: 28px;
+  color: $dark-grey;
+  &.meta-title{
+    color: $light-grey;
+  }
+
+}
+
+h6 {}
+
+p {
+  font-family: 'brownregular';
+  font-size: 20px;
+  line-height: 36px;
+  margin-bottom: 36px;
+
+  &.section-title {
+    font-family: 'brownbold_alt';
+    margin-bottom: 0;
+  }
+
+  strong {
+    font-family: 'brownbold_alt';
+  }
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  &.top-of-image {
+    margin-bottom: 18px;
+  }
+}
+
+ul{
+  &.project-meta{
+
+      list-style: none;
+      font-family: 'brownbold_alt';
+      font-size: 16px;
+      line-height: 28px;
+      color: $dark-grey;
+      border-left: 2px solid $dark-grey;
+      margin-top: 14px;
+
+
+      li.meta-title{
+        color: $light-grey;
+      }
+
+  }
+}
+figure{
+
+  margin-bottom: 0px;
+
+  figcaption{
+
+    font-family: "brownregular_italic";
+    color: $light-grey;
+    font-size: 16px;
+    padding-top: 8px;
+  }
+}
+.img-carousel {
+  margin-bottom: 36px;
+
+  .nk-flickity-arrow{
+    background-color: rgba(255, 255, 255, 0.8);
+    color: $dark-grey;
+
+  }
+
+  .video-content{
+    width: 100%;
+    height: auto;
+  }
+}
+
+.content-section {
+  margin-bottom: 90px;
+
+  .content-sub-section {
+    margin-bottom: 72px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+
+
+    }
+
+    &.text-on-top .img-carousel{
+
+      margin-bottom: 0px;
+
+    }
+  }
+}
+
+
+//navbar link text
+.nk-navbar .nk-nav-right {
+  font-family: 'brownregular';
+  font-size: 16px;
+  line-height: 18px;
+  margin-top: 16px;
+  color: $dark-grey;
+}
+
+.wrapper {
+  position: relative;
+
+  .white-bar {
+    position: absolute;
+    right: 0;
+    top: 18px;
+    height: 28px;
+    width: 36%;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: -1000;
+  }
+}
+
+nav.reduce-padding {
+  padding: 20px 0;
+}
+//between the different project meta details
+.custom-gap {
+  height: 28px;
+}
+
+.proj-thumbnail {
+  .proj-img {
+    img {
+      width: 100%;
+    }
+  }
+}
+
+//this is making the entire project chunk overlap slightly on the cover image.
+.nk-portfolio-single {
+  margin-top: -106px;
+
+
+}

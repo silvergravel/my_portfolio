@@ -1,0 +1,18 @@
+
+
+@mixin text-render-fix() {
+
+
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+
+}
+
+
+@mixin transition($transition...) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
