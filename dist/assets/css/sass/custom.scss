@@ -1,0 +1,1326 @@
+@import "mixins-extends";
+@import "fonts";
+@import "custom-variables";
+@import "type-setting";
+
+//pageloader
+#pageloader{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10000000;
+  background-color: $very-dark-grey;
+}
+
+@-webkit-keyframes rotating {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+#preloader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 60px;
+  height: 60px;
+  margin-left: -30px;
+  margin-top: -30px;
+  border: $white 5px solid;
+  border-left-color: transparent;
+  border-radius: 50%;
+  -webkit-animation: rotating 1s linear infinite;
+  animation: rotating 1s linear infinite;
+}
+
+#preloader-img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+//basic thumbnail disable while web undner construction
+.proj-thumbnail.disabled{
+  cursor: default !important;
+
+  &:hover{
+    background-color: rgba(0,0,0,0) !important;
+  }
+}
+
+
+//change background color of DOM -------------------------//
+
+.nk-main {
+  background-color: #ffffff;
+}
+
+//---------------------------------------//
+
+
+//navbar related settings -------------------------//
+
+//selected styling
+
+.nk-navbar .nk-nav > li > a > span{
+  padding: 0 5px 2px 5px;
+  display: inline-block;
+}
+
+.nk-navbar .nk-nav > li > a.selected > span{
+    // outline: 5px solid $light-grey;
+    color: $very-dark-grey;
+    background-color: $white;
+}
+
+
+
+.wrapper {
+  position: relative;
+
+  .white-bar {
+    position: absolute;
+    right: 0;
+    top: 12px;
+    height: 30px;
+    width: 460px;
+    background: rgba(#262626, 0.9);
+    z-index: -1000;
+  }
+}
+
+//to slightly reduce height of Navbar
+
+nav.reduce-padding {
+  padding: 20px 0;
+}
+
+//the menu items on the right of nav
+.nk-navbar .nk-nav{
+  margin-top: -5px;
+}
+
+@media screen and (max-width: 991px) {
+
+  .wrapper {
+    position: relative;
+
+    .white-bar {
+      width: 114px;
+      top: 12px;
+      height: 32px;
+
+    }
+  }
+
+}
+
+@media screen and (max-width: 575px) {
+
+  .nk-navbar .container-fluid .nk-nav-table{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .wrapper .white-bar{
+    width: 78px;
+  }
+
+}
+
+//custom adjustments for Mobile
+#nk-nav-mobile {
+
+  &.nk-navbar .nk-nav{
+    padding-top: 0px; //remove that excessive padding onn top of mobile mennu so that it is somewhat in the center.
+  }
+
+  .nk-nav-row.nav-header{
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  ul.nk-nav{
+    z-index: 999;
+  }
+
+  ul li a{
+    font-family: 'brownbold_alt';
+    font-weight: 100;
+    font-size: 16px;
+    line-height: 18px;
+    text-transform: uppercase;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: $white;
+
+    >span{
+      @include transition(background-color 0.2s);
+
+      &:hover{
+        background-color: $light-grey;
+        // color: $light-grey;
+      }
+    }
+
+  }
+
+  .nk-nav-header{
+  padding-top: 4px;
+  }
+
+  .ab-mobile-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 30px 20px 30px;
+  }
+
+  .ab-icon-adjust-pos-hack{
+    margin-top: -4px;
+    margin-left: -33px;
+  }
+
+  .nk-icon-close{
+    color: $white;
+  }
+}
+@media screen and (max-width: 575px) {
+  #nk-nav-mobile .ab-mobile-header{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.nk-navbar-full{
+  background: $very-dark-grey;
+}
+
+
+//---------------------------------------//
+
+//basic shape setting ------------------------//
+
+hr{
+  &.portfolio-section{
+    margin-top: 0px;
+    margin-bottom: 25px;
+    border-color: $extra-light-grey;
+  }
+}
+
+//---------------------------------------//
+
+
+
+//basic type setting ------------------------//
+
+//navbar link text
+.nk-navbar .nk-nav-right {
+
+  a{
+    font-family: 'brownbold_alt';
+    font-size: 16px;
+    line-height: 18px;
+    margin-top: 16px;
+    color: $white;
+
+
+    span{
+
+      @include transition(background-color 0.2s);
+
+      &:hover{
+        //color: $light-grey;
+        background-color: $light-grey;
+
+      }
+    }
+  }
+}
+
+//navbar hamburger icon - setting some sizes so that hover on it looks neat and within the black bar
+.nk-navbar .nk-nav li.single-icon > a > span.nk-icon-burger{
+  // height: 26px;
+  width: 30px;
+}
+
+//normalize the default text underline on links:hover
+a:hover{
+  text-decoration: none;
+}
+
+//basic <a> text-link style settings
+
+a.text-link{
+  text-decoration: underline;
+  color: $very-dark-grey;
+  @include transition(color 0.2s);
+
+  &:hover{
+    color: $light-grey;
+  }
+}
+
+#inrem-1 .meta-detail a.text-link{
+  color: $inrem-1-color-bright-2;
+
+  &:hover{
+    color: $inrem-1-color-dark;
+  }
+}
+
+
+
+#reboot .meta-detail a.text-link:hover{
+  color: $reboot-color-bright;
+  &:hover{
+    color: $reboot-color-dark;
+  }
+}
+
+
+figcaption a.text-link:hover{
+  color: $dark-grey;
+}
+
+// styling project navigation at the end of each proj page
+
+.proj-nav{
+
+  a{
+    height: 56px;
+
+    &>span{
+      font-family: 'brownbold_alt';
+      font-size: 16px;
+      line-height: 18px;
+      color: $dark-grey;
+      @include transition(background-color 0.2s);
+
+
+      &:hover{
+        background-color: $extra-light-grey;
+        // color: $dark-grey;
+      }
+    }
+
+    &.prev-work-nav{
+      img.ab-custom-arrow-icon{
+        margin-top: -4px;
+        margin-right: 4px;
+      }
+    }
+
+    &.next-work-nav{
+      img.ab-custom-arrow-icon{
+        margin-top: -4px;
+        margin-left: 4px;
+      }
+    }
+  }
+}
+//disabled proj nav
+.proj-nav a.nk-pagination-prev.prev-work-nav.disabled ,
+.proj-nav a.nk-pagination-next.next-work-nav.disabled{
+
+  &>span{
+    color: $mid-light-grey;
+    cursor: not-allowed;
+  }
+  &>span img{
+    opacity: 0.3;
+  }
+  &>span:hover{
+    background-color: rgba(0,0,0,0);
+  }
+}
+
+@media screen and (max-width: 991px) {
+
+  .proj-nav{
+
+    a.nk-pagination-prev.prev-work-nav>span{
+          font-size: 16px;
+          line-height: 18px;
+      }
+
+    a.nk-pagination-next.next-work-nav>span{
+          font-size: 16px;
+          line-height: 18px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+
+    .nk-pagination .container .nk-pagination-prev{
+      padding-left: 18px;
+    }
+
+    .nk-pagination .container .nk-pagination-next{
+      padding-right: 18px;
+    }
+
+    .nk-pagination .container .nk-pagination-center{
+      // padding: 0;
+    }
+
+    .pagination-text{
+        display: none;
+      }
+    }
+
+h1 {
+  font-family: 'brownbold_alt';
+  font-size: 80px;
+  color: $very-dark-grey;
+  line-height: 1.3em;
+}
+
+.welcome-display-wrapper{
+  margin-bottom: 124px;
+}
+
+@media screen and (max-width: 767px){
+  .welcome-display-wrapper{
+    margin-bottom: 80px;
+  }
+}
+
+.welcome-display{
+
+  margin-bottom: 20px;
+  text-align: left;
+
+  a{
+      font-family: 'brownbold_alt';
+  }
+
+  &.right-align{
+    text-align: right;
+  }
+
+}
+
+h2 {
+
+
+  font-family: 'brownregular';
+  font-size: 48px;
+  color: $very-dark-grey;
+  line-height: 68px;
+
+
+  &.nk-portfolio-title.proj-title {
+    font-family: 'brownlight';
+    font-size: 48px;
+    color: $very-dark-grey;
+    line-height: 68px;
+    margin-bottom: 34px;
+
+    span {
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+  }
+}
+
+
+
+h3 {
+  font-family: 'brownregular';
+  font-size: 28px;
+  color: $very-dark-grey;
+  line-height: 44px;
+  margin-bottom: 34px;
+
+  strong{
+      font-family: 'brownbold_alt';
+  }
+
+  &.section-title {
+    margin-bottom: 12px;
+
+  }
+
+
+  &.pull-out-text {
+    font-family: 'brownregular_italic';
+    padding-left: 30px;
+    border-left: 1px solid;
+
+
+
+    &#movel{
+      color: $movel-color-bright;
+      border-color: $movel-color;
+    }
+
+    &#inrem-1{
+      color: $inrem-1-color-bright;
+      border-color: $inrem-1-color;
+
+      .highlight{
+        background-color: $inrem-1-color-light;
+      }
+    }
+
+  }
+
+  &.portfolio-section{
+    //font-family: 'brownlight';
+    margin-bottom: 0px;
+  }
+}
+
+
+
+h4 {
+
+  font-family: 'brownbold_alt';
+  font-size: 20px;
+  color: $very-dark-grey;
+  line-height: 30px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+
+}
+
+h5 {
+  font-family: 'brownbold_alt';
+  font-size: 16px;
+  line-height: 28px;
+  color: $very-dark-grey;
+  margin-bottom: 34px;
+
+  &.meta-title {
+    font-family: 'brownregular_italic';
+  }
+
+  &.meta-detail {
+  font-family: 'brownregular';
+  }
+}
+//setting the various different meta text colors for the different project pages.
+.project-meta{
+  border-left: 1px solid;
+}
+
+.project-meta#movel {
+  border-color: $movel-color;
+
+  h5{
+    color: $movel-color-bright;
+  }
+}
+
+.project-meta#inrem-1 {
+  border-color: $inrem-1-color;
+
+  h5{
+    color: $inrem-1-color-bright-2;
+  }
+}
+
+.project-meta#quest {
+  border-color: $quest-color;
+
+  h5{
+    color: $quest-color-bright;
+  }
+}
+
+.project-meta#reboot {
+  border-color: $reboot-color;
+
+  h5{
+    color: $reboot-color-bright;
+  }
+}
+
+.project-meta#dhm {
+  border-color: $dhm-color;
+
+  h5{
+    color: $dhm-color-bright;
+  }
+}
+
+h5.client-name{
+  margin-top: 20px;
+  margin-bottom: 10px;
+
+  span{
+    font-family: 'brownregular_italic';
+    color: $light-grey;
+  }
+}
+
+h6 {
+  font-family: 'brownregular';
+  font-size: 12px;
+  line-height: 18px;
+}
+
+p {
+  font-family: 'brownregular';
+  font-size: 20px;
+  line-height: 34px;
+  margin-bottom: 34px;
+  color: $very-dark-grey;
+
+  &.noBotMargin{
+    margin-bottom: 0px;
+  }
+
+  .italic{
+    font-family: 'brownregular_italic';
+  }
+
+  strong {
+    font-family: 'brownbold_alt';
+  }
+}
+
+ul{
+  font-family: 'brownregular';
+  font-size: 20px;
+  line-height: 34px;
+  color: $very-dark-grey;
+  margin-bottom: 34px;
+}
+
+
+
+
+//resizing and aligning the chevron in 'more about me >'
+.about-me-link {
+
+  margin-top: 20px;
+  height: 18px;
+  text-align: left;
+
+    a{
+      font-family: 'brownbold_alt';
+      font-size: 16px;
+      line-height: 18px;
+      color: $very-dark-grey;
+      @include transition(background-color 0.2s);
+
+      &:hover{
+        background-color: $extra-light-grey;
+      }
+
+      img.ab-custom-arrow-icon{
+        margin-top: -3px;
+        margin-left: 4px;
+      }
+    }
+}
+
+.go-to-outcome-link>div{
+
+
+    height:20px;
+    display:flex;
+    align-items: center;
+
+    &>p{
+      margin: 0;
+      @include transition(color 0.2s);
+    }
+
+    &>img{
+      height: 20px;
+      margin-left: 10px;
+      margin-top: 5px;
+      @include transition(filter 0.2s);
+    }
+
+}
+
+.go-to-outcome-link>div:hover p{
+    color: $light-grey;
+}
+
+.go-to-outcome-link>div:hover img{
+    filter: brightness(2.4);
+}
+
+
+div {
+  &.project-meta {
+
+
+    margin-top: 14px;
+    padding-left: 30px;
+
+
+    div.row:last-of-type h5{
+      margin-bottom: 0px;
+    }
+
+  }
+}
+
+
+figure {
+  figcaption {
+    font-family: "brownregular";
+    color: $light-grey;
+    font-size: 16px;
+    line-height: 26px;
+    padding-top: 8px;
+  }
+}
+
+//-- START : typo related mobile adjustments --//
+
+//mobile adjustments for h2
+@media screen and (max-width: 767px) {
+
+  h1 {
+    font-size: 50px;
+  }
+
+  h2 {
+    font-size: 36px;
+    line-height: 54px;
+
+    &.nk-portfolio-title.proj-title {
+
+      font-size: 36px;
+      line-height: 54px;
+    }
+  }
+}
+
+
+//mobile adjustments for h3
+@media screen and (max-width: 767px) {
+
+  h3 {
+
+    font-size: 24px;
+    line-height: 38px;
+
+
+
+  }
+}
+
+//mobile adjustments for pull out text ----------------------------//
+
+@media screen and (max-width: 991px) {
+
+  h3.pull-out-text{
+
+    padding: 20px 0px 0px 0px;
+    border-top: 1px solid;
+    border-left: none;
+
+  }
+
+}
+
+
+
+//mobile adjustments for p ----------------------------//
+
+@media screen and (max-width: 767px) {
+
+  p {
+
+    font-size: 18px;
+    line-height: 30px;
+
+
+  }
+}
+
+
+//mobile adjustments for project meta ----------------------------//
+
+
+@media screen and (max-width: 767px) {
+
+  div.project-meta {
+
+
+
+      .row{
+
+        margin-bottom: 34px;
+
+        &:last-of-type{
+
+          margin-bottom: 0px;
+
+        }
+
+        h5 {
+            font-size: 14px;
+            line-height: 22px;
+            margin-bottom: 0px;
+          }
+
+      }
+
+    }
+}
+
+@media screen and (max-width: 991px) {
+
+  div.project-meta{
+    margin-bottom: 34px;
+    padding: 20px 0px 0px 0px;
+    border-top: 1px solid;
+    border-left: none;
+    margin-top: 0px;
+
+  }
+
+}
+
+//-----------------------------------------------------------------//
+
+
+//mobile adjustments for image caption-----------------------------//
+
+
+@media screen and (max-width: 767px) {
+
+  figure {
+    figcaption {
+
+      font-size: 14px;
+      line-height: 22px;
+    }
+
+  }
+}
+
+//-----------------------------------------------------------------//
+
+//-- END : typo related mobile adjustments --//
+
+
+//----normalizing and overiding some font weights, styles and other fucks ups from the snow template code----//
+
+
+h1, h2, h2.proj-title, h3, h4, h5, h6, p, p strong, ul, li, figcaption, a {
+  @include text-render-fix();
+  font-weight: inherit;
+  letter-spacing: inherit;
+}
+
+//------------------------------------//
+
+
+
+//carousel & img-block & content-section settings -------------------------//
+
+.image-wrapper{
+  .image-block{
+    margin-bottom: 18px;
+  }
+  .row:last-of-type .image-block:last-of-type{
+    margin-bottom: 34px;
+  }
+}
+
+.img-carousel {
+  margin-bottom: 34px;
+
+  .nk-flickity-arrow {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: $very-dark-grey;
+  }
+}
+
+.content-section {
+  margin-bottom: 54px;
+
+}
+
+@media screen and (max-width: 767px){
+
+  .nk-flickity-arrow.nk-flickity-arrow-prev{
+    left: 10px;
+  }
+
+  .nk-flickity-arrow.nk-flickity-arrow-next{
+    right: 10px;
+  }
+}
+
+
+//------------------------------------//
+
+
+
+// some classes to 'hack' spacing whenever needed -------------------//
+
+.custom-gap-18 {
+  height: 18px;
+}
+
+.custom-gap-28 {
+  height: 28px;
+}
+
+.custom-gap-34 {
+  height: 34px;
+}
+
+
+
+.custom-gap-54 {
+  height: 54px;
+}
+
+.custom-gap-72 {
+  height: 72px;
+}
+
+.custom-gap-84 {
+  height: 84px;
+}
+
+.custom-gap-90 {
+  height: 90px;
+}
+
+.proj-thumbnail {
+  .proj-img {
+    img {
+      width: 100%;
+    }
+  }
+}
+
+//this is making the entire project chunk overlap slightly on the cover image.
+.nk-portfolio-single {
+  margin-top: -100px;
+}
+
+
+@media screen and (max-width: 575px) {
+
+  .nk-portfolio-single {
+    padding: 0 10px 0 10px;
+
+  }
+}
+
+@media screen and (max-width: 767px) {
+
+  .nk-portfolio-single {
+
+    margin-top: -80px;
+  }
+}
+
+//home styling -------------------------//
+
+.proj-thumbnails-row{
+
+  .proj-thumbnail{
+      margin-bottom: 130px;
+      padding-top: 15px;
+      @include transition(background-color 0.3s);
+
+      &:hover{
+        cursor: pointer;
+      }
+
+      &#movel:hover{
+        background-color: $movel-color-light;
+      }
+
+      &#inrem-1:hover{
+        background-color: $inrem-1-color-light;
+      }
+
+      &#quest:hover{
+        background-color: $quest-color-light;
+      }
+
+      &#dhm:hover{
+        background-color: $dhm-color-light;
+      }
+
+      &#reboot:hover{
+        background-color: $reboot-color-light;
+      }
+  }
+}
+
+@media screen and (max-width: 767px) {
+
+  .proj-thumbnails-row {
+    .proj-thumbnail{
+        margin-bottom: 80px;
+    }
+  }
+}
+
+@media screen and (max-width: 575px) {
+
+  .home-page-content-wrapper {
+    padding: 0 10px 0 10px;
+  }
+}
+
+
+//footer styling -------------------------//
+
+footer.custom-footer{
+  background-color: $very-dark-grey;
+  padding-top: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+
+
+
+      .container{
+
+
+        .custom-footer__column{
+          padding-bottom: 40px;
+
+          .content-channels-content{
+
+          }
+
+          h5{
+            font-family: "brownbold_alt";
+            line-height: 20px;
+            color: $white;
+            margin-bottom: 20px;
+          }
+
+          h6{
+            font-family: "brownbold_alt";
+            color: $white;
+            margin-bottom: 0px;
+            line-height: 20px;
+
+            a{
+            color: $white;
+            text-decoration: underline;
+            @include transition(color 0.2s);
+
+
+              &:hover{
+                color: $light-grey;
+              }
+
+            }
+          }
+
+          img{
+            width: 100%;
+            max-width: 160px;
+            height: auto;
+          }
+
+      }
+
+
+  }
+
+.footer-divider-line{
+  border-top: 1px solid $dark-grey;
+    margin: 0 15px 40px 15px;
+    width: 100%;
+    display: none;
+}
+
+@media screen and (max-width: 991px) {
+  .footer-divider-line{
+    display: block;
+  }
+}
+
+
+}
+
+//about page
+
+  .about-page-content__banner{
+    margin-top: 124px;
+    margin-bottom: 124px;
+
+    .welcome-display{
+      overflow-wrap: break-word;
+    }
+  }
+
+  .about-page-content .text-block{
+    margin-bottom: 54px;
+  }
+
+  @media screen and (max-width: 575px) {
+    .about-page-content__banner{
+      margin-bottom: 50px;
+    }
+
+    .about-page-content .text-block{
+      margin-top: -60px;
+      margin-bottom: 0;
+    }
+
+    .about-page-content .philosophy-text-block{
+      margin-bottom: 54px;
+    }
+
+
+  }
+
+  @media screen and (max-width: 767px) {
+
+    .about-page-content{
+      padding-left: 25px;
+      padding-right: 25px;
+    }
+  }
+
+  .about__media_container{
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .about__day1_media_container{
+    padding-left: 80px;
+    margin-top: -60px;
+  }
+
+  .about__day2_media_container{
+    padding-left: 20px;
+
+  }
+
+  .about__day3_media_container{
+    padding-left: 150px;
+
+  }
+
+  .about__day4_media_container{
+    padding-left: 80px;
+
+  }
+
+  .about__play_media_container{
+    padding-left: 160px;
+  }
+
+  .about__books_media_container{
+    padding-left: 110px;
+  }
+
+  .about__food_media_container{
+    padding-left: 40px;
+  }
+
+  .about__img{
+    // width: 100%;
+    z-index: 100;
+
+  }
+
+  .about__circle_wrapper{
+    height: 370px;
+    width: 100%;
+    z-index:99;
+
+  }
+
+  .about__circle{
+    cx: 185px;
+    cy: 185px;
+    r: 185px;
+  }
+
+  .about__philosophy_circle{
+    fill: $about-yellow-bright;
+  }
+
+  .about__day1_circle{
+    fill: $about-red-bright;
+
+  }
+
+  .about__day2_circle{
+
+    fill: $about-blue-bright;
+  }
+
+  .about__day3_circle{
+    fill: $about-aqua-bright;
+
+  }
+
+  .about__day4_circle{
+
+    fill: $about-red-bright;
+
+  }
+
+  .about__play_circle{
+    fill: $about-green-bright;
+
+  }
+
+  .about__fun_circle{
+    fill: $about-blue-bright;
+
+  }
+
+  .about__books_circle{
+    fill: $about-aqua-bright;
+
+  }
+
+  .about__food_circle{
+    fill: $about-red-bright;
+
+  }
+
+
+  .about__philosophy_img{
+    max-width: 370px;
+    // margin-top: -285px;
+    // margin-left: 65px;
+  }
+
+  .about__day1_img{
+    max-height: 370px;
+    // margin-top: -320px;
+    margin-left: -120px;
+  }
+
+  .about__day2_img{
+    max-width: 370px;
+    // margin-top: -360px;
+    margin-left: -37px;
+  }
+
+  .about__day3_img{
+    max-width: 350px;
+    margin-top: -350px;
+    margin-left: -90px;
+  }
+
+  .about__day4_img{
+    max-width: 325px;
+    margin-top: -320px;
+    margin-left: 100px;
+  }
+
+  .about__play_img{
+    max-width: 480px;
+    mix-blend-mode: multiply;
+    margin-top: -320px;
+    margin-left: -160px;
+  }
+
+  .about__fun_img{
+    max-width: 400px;
+    margin-top: -360px;
+    margin-left: 120px;
+  }
+
+  .about__books_img{
+    max-width: 310px;
+    margin-top: -290px;
+    margin-left: 130px;
+  }
+
+  .about__food_img{
+    max-width: 530px;
+    margin-top: -370px;
+    margin-left: -250px;
+  }
+
+  @media screen and (max-width: 1199px){
+
+    .about__food_media_container{
+      padding-left: 70px;
+    }
+
+    .about__books_media_container{
+      padding-left: 20px;
+    }
+
+    .about__play_media_container{
+      padding-left: 75px;
+    }
+
+    .about__day3_media_container{
+      padding-left: 80px;
+    }
+
+    .about__day4_media_container{
+      padding-left: 50px;
+    }
+
+  }
+
+  @media screen and (max-width: 991px){
+
+    .about__books_media_container, .about__food_media_container, .about__play_media_container,
+    .about__day1_media_container, .about__day2_media_container, .about__day3_media_container,
+    .about__day4_media_container,
+    {
+      padding-left: 0;
+    }
+
+    .about__day1_media_container{
+      margin-top: 0;
+    }
+
+    .about__day2_img{
+      margin-left: 0;
+    }
+
+    .about__day1_img{
+      margin-left: -130px;
+    }
+  }
+
+  @media screen and (max-width: 575px) {
+
+    .about__media_container{
+      transform: scale(0.65);
+      margin-left: -23px;
+    }
+
+    .about__circle_wrapper{
+      width: 140%;
+    }
+
+    .about__play_circle{
+      display: none;
+    }
+
+    .about__play_img{
+      mix-blend-mode: normal;
+    }
+
+    .about__day1_media_container{
+      margin-top: -60px;
+    }
+
+
+
+
+
+  }
